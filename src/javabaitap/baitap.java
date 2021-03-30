@@ -81,17 +81,19 @@ public class baitap {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
-        int max = 0;
-        int min = 0;
+        double max = arr.length;
+        double min = arr.length;
         for(int i = 0; i<arr.length;i++){
-            if(arr[i]>max){
+           
+            if(max<=arr[i]){
                 max = arr[i];
             }
             if(arr[i]<min){
                 min = arr[i];
             }
-            System.out.println("max: "+max+"/nmin: "+min);
+         
         }
+           System.out.println("max: "+max+"\nmin: "+min);
     }
 
     public void bai6() {
@@ -149,7 +151,7 @@ public class baitap {
             } else {
                 x1 = (-b + sqrt(delta)) / (2 * a);
                 x2 = (-b - sqrt(delta)) / (2 * a);
-                System.out.println("Nghiệm x1 = " + x1 + "/nNghiệm x2 = " + x2);
+                System.out.println("Nghiệm x1 = " + x1 + "\nNghiệm x2 = " + x2);
             }
         }
 
@@ -217,7 +219,7 @@ public class baitap {
             } else {
                 x1 = sqrt((-b + sqrt(delta)) / (2 * a));
                 x2 = sqrt((-b - sqrt(delta)) / (2 * a));
-                System.out.println("Nghiệm x1 = " + x1 + " Nghiệm x3 = " + (-x1) + "/nNghiệm x2 = " + x2 + "Nghiệm x4 = " + (-x2));
+                System.out.println("Nghiệm x1 = " + x1 + " Nghiệm x3 = " + (-x1) + "\nNghiệm x2 = " + x2 + "Nghiệm x4 = " + (-x2));
             }
         }
     }
@@ -244,7 +246,7 @@ public class baitap {
             }
             P = a + b + c;
             S = sqrt(P * (P - a) * (P - b) * (P - c));
-            System.out.println("Chu vi tam giác là: P = " + P + "/nDiện tích tam giác là: S = " + S);
+            System.out.println("Chu vi tam giác là: P = " + P + "\nDiện tích tam giác là: S = " + S);
         }
     }
 
@@ -260,6 +262,7 @@ public class baitap {
         for (int i = 2; i <= n; i++) {
             if (n % i == 0) {
                 System.out.println(n + " không phải số nguyên tố.");
+                break;
             } else {
                 System.out.println(n + " là số nguyên tố.");
             }
