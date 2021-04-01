@@ -264,7 +264,7 @@ public class baitap {
                 System.out.println(n + " không phải số nguyên tố.");
                 break;
             } else {
-                System.out.println(n + " là số nguyên tố.");
+                System.out.println(n + " là số nguyên tố.");    
             }
         }
         for (int i = 1; i <= n; i++) {
