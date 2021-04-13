@@ -35,7 +35,7 @@ public class Baitapday3 {
         a = input.nextInt();
         baitap b = new baitap();
         matrix m = new matrix();
-        ComplexNumber n = new ComplexNumber();
+//        ComplexNumber n = new ComplexNumber();
         switch (a) {
             case 1:
                 b.bai20();
@@ -65,7 +65,10 @@ public class Baitapday3 {
                 m.bai39();
                 break;
             case 10:
-                n.bai40();
+//                n.bai40();
+                break;
+            case 11:
+                b.bai26();
                 break;
 
             // TODO code application logic here

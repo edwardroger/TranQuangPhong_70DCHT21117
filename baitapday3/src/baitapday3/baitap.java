@@ -39,28 +39,26 @@ public class baitap {
     }
 
     public void bai22() {
-        
-         int temp;
-        boolean isPrime=true;
-        Scanner input= new Scanner(System.in);
+
+        int temp;
+        boolean isPrime = true;
+        Scanner input = new Scanner(System.in);
         System.out.println("Nhập vào số cần kiểm tra:");
-        int n=input.nextInt();
-        
-        for(int i=2;i<=n/2;i++)
-        {
-            temp=n%i;
-            if(temp==0)
-            {
-                isPrime=false;
+        int n = input.nextInt();
+
+        for (int i = 2; i <= n / 2; i++) {
+            temp = n % i;
+            if (temp == 0) {
+                isPrime = false;
                 break;
             }
         }
-        if(isPrime)
+        if (isPrime) {
             System.out.println(n + " Là số nguyên tố!");
-        else
+        } else {
             System.out.println(n + " Không phải là số nguyên tố!");
+        }
     }
-    
 
     public void bai23() {
         Scanner input = new Scanner(System.in);
@@ -112,6 +110,24 @@ public class baitap {
             }
         }
         return 1;
+    }
+
+    public void bai26() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Nhap vao so n:");
+        int n = input.nextInt();
+        int sum = 0;
+        int k = 0;
+        for (int i = 2; i < 1000; i++) {
+            if (ktsnt(i) == 1) {
+                k++;
+                sum += i;
+                if (k == n) {
+                    break;
+                }
+            }
+        }
+        System.out.println("Tong cac so nguyen to la: " + sum);
     }
 
 }
