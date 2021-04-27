@@ -6,6 +6,7 @@
 package javaoop;
 
 import java.util.Scanner;
+import static javaoop.NganHang.sca;
 
 /**
  *
@@ -18,7 +19,7 @@ public class JavaOOP {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        int a;
+        int z;
         Scanner input = new Scanner(System.in);
         System.out.println("Bài tập Java buổi 1");
         System.out.println("1. Bài 1: Hình chữ nhật.");
@@ -28,10 +29,10 @@ public class JavaOOP {
 
         System.out.println("\n=======================================================\n");
 
-        a = input.nextInt();
+        z = input.nextInt();
 
 //        ComplexNumber n = new ComplexNumber();
-        switch (a) {
+        switch (z) {
             case 1:
                 HinhChuNhat hcn = new HinhChuNhat();
                 Scanner scanner = new Scanner(System.in);
@@ -141,6 +142,121 @@ public class JavaOOP {
                 xe3.inXe();
                 System.out.println("--------------------------end-----------------------------");
                 break;
+            case 4:
+              
+                NganHang a[] = null;
+                int k,
+                 b,
+                 n = 0;
+                long s,
+                 d,
+                 c,
+                 f;
+                boolean flag = true;
+                do {
+                    System.out.println("Bạn chọn làm gì: ");
+                    System.out.println("1.Nhập thông tin của các khách hàng\n"
+                            + "2.Xuất danh sách thông tin của các khách hàng\n" + "3.Nạp tiền\n" + "4.Rút tiền\n"
+                            + "5.Đáo hạn\n" + "6.Chuyển khoản\n" + "Số khác để thoát");
+                    b = sca.nextInt();
+                    switch (b) {
+                        case 1:
+                            System.out.println("Nhập số lượng khách hàng bạn muốn nhập: ");
+                            n = sca.nextInt();
+                            a = new NganHang[n];
+                            for (int i = 0; i < n; i++) {
+                                System.out.println("Khách hàng số: " + (i + 1));
+                                a[i] = new NganHang();
+                                nhapTK(a[i]);
+                            }
+                            break;
+                        case 2:
+                            System.out.printf("%-10s %-20s %-20s\n", "Số TK", "Tên TK", "Số tiền trong TK");
+                            for (int i = 0; i < n; i++) {
+                                a[i].inTK();
+                            }
+                            break;
+                        case 3:
+                            System.out.println("Nhập số tài khoản khách hàng cần nạp tiền: ");
+                            s = sc.nextLong();
+                            for (int i = 0; i < n; i++) {
+                                d = a[i].getSoTK();
+                                if (s == d) {
+                                    System.out.println("Bạn chọn tài khoản: " + d);
+                                    a[i].napTien();
+                                } else {
+                                    System.out.println("");
+                                }
+                            }
+                            break;
+                        case 4:
+                            System.out.println("Nhập số tài khoản khách hàng cần rút tiền: ");
+                            s = sc.nextLong();
+                            for (int i = 0; i < n; i++) {
+                                d = a[i].getSoTK();
+                                if (s == d) {
+                                    System.out.println("Bạn chọn tài khoản: " + d);
+                                    a[i].rutTien();
+                                }
+                            }
+                            break;
+                        case 5:
+                            System.out.println("Nhập số tài khoản khách hàng cần đáo hạn: ");
+                            s = sc.nextLong();
+                            for (int i = 0; i < n; i++) {
+                                d = a[i].getSoTK();
+                                if (s == d) {
+                                    System.out.println("Bạn chọn tài khoản: " + d);
+                                    a[i].daoHan();
+                                } else {
+                                    System.out.println("");
+                                }
+                            }
+                            break;
+                        case 6:
+                            double chuyen,
+                             nhan,
+                             tienChuyen;
+                            System.out.print("Nhập số tài khoản khách hàng chuyển tiền: ");
+                            s = sc.nextLong();
+                            System.out.print("Nhập số tài khoản khách hàng nhận tiền: ");
+                            c = sc.nextLong();
+                            for (int i = 0; i < n; i++) {
+                                d = a[i].getSoTK();
+                                if (s == d) {
+                                    chuyen = a[i].getSoTienTrongTK();
+                                    for (int j = 0; j < n; j++) {
+                                        f = a[j].getSoTK();
+                                        if (c == f) {
+                                            nhan = a[j].getSoTienTrongTK();
+                                            System.out.println("Nhập số tiền cần chuyển");
+                                            tienChuyen = sc.nextDouble();
+                                            if (tienChuyen <= chuyen) {
+                                                chuyen = chuyen - tienChuyen;
+                                                nhan = nhan + tienChuyen;
+                                                a[i].setSoTienTrongTK(chuyen);
+                                                a[j].setSoTienTrongTK(nhan);
+                                                System.out.println("Tài khoản số " + d + " vừa chuyển: $" + tienChuyen);
+                                                System.out.println("Tài khoản số " + f + " vừa nhận: $" + tienChuyen);
+                                            } else {
+                                                System.out.println("Số tiền nhập không hợp lệ!");
+                                            }
+                                        } else {
+                                            System.out.println("");
+                                        }
+                                    }
+                                } else {
+                                    System.out.println("");
+                                }
+                            }
+                            break;
+                        default:
+                            System.out.println("Bye!!");
+                            flag = false;
+                            break;
+                    }
+                } while (flag);
+                break;
             case 5:
 
                 PhanSo phanSo1 = new PhanSo(16, 3);    // tạo phân số có tử = 16 và mẫu = 4
@@ -155,6 +271,10 @@ public class JavaOOP {
                 break;
 
         }
+    }
+
+    private static void nhapTK() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
